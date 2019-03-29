@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 访问地址
 
 https://weiwang94.github.io/
@@ -16,3 +17,6 @@ https://pages.github.com/
 
 
 [更多](https://pages.github.com/themes/)
+=======
+# weiwang94.github.io
+>>>>>>> 9d390769d1d0d7d379a82a31bcf52937ee53d3a3
