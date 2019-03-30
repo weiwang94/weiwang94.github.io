@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=6f568f1ffc9c309cf9ce0c96c6adba37832d3869" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>flask | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="flask" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/python/flask.html" />
+<meta property="og:url" content="http://localhost:4000/python/flask.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/python/flask.html","headline":"flask","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="flask">flask</h1>
+
+<p><a href="http://docs.jinkan.org/docs/flask/">官方文档</a></p>
+
+<p>导入 flask 函数</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    Blueprint,
+)
+</code></pre></div></div>
+
+<p>Flask 用来生成 Flask 实例</p>
+
+<p>render_template 用来渲染模板</p>
+
+<p>request 提供请求相关数据</p>
+
+<p>redirect 重定向</p>
+
+<p>url_for 方便导向某个路由</p>
+
+<h3 id="初始化一个-flask-实例">初始化一个 Flask 实例</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app = Flask(__name__)as
+</code></pre></div></div>
+
+<h3 id="使用蓝图">使用蓝图</h3>
+
+<p>todo.py (在 routes 模块下) 创建一个蓝图对象</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main = Blueprint('todo', __name__) 
+</code></pre></div></div>
+
+<p>app.py  使用创建的蓝图对象注册蓝图</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from routes.todo import main as todo_routes
+
+app.register_blueprint(todo_routes, url_prefix='/todo')
+</code></pre></div></div>
+
+<h3 id="声明路由">声明路由</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@app.route(path, methods=["GET", "POST"])
+def index(param):
+    pass
+</code></pre></div></div>
+
+<p>使用 @ 装饰器声明路由，第一个参数是路由的路径，第二个参数是这个路由接受的请求方法</p>
+
+<p>装饰器下面定义处理这个路由的函数，函数的参数是路由里面动态的部分</p>
+
+<h3 id="渲染模板">渲染模板</h3>
+
+<p>render_template 渲染模板，使用 <a href="http://jinja.pocoo.org/2/documentation/">jinja2</a> 引擎 项目目录下 templates 的模板。</p>
+
+<h3 id="请求">请求</h3>
+
+<p>request 对象，form属性以 MultiDict 形式存储请求中的 body 部分，args属性以 MultiDict 形式存储请求 URL 问号后面的部分。</p>
+
+<h3 id="重定向">重定向</h3>
+
+<p>redirect 重定向函数，重定向到某个路由。</p>
+
+<h3 id="动态路由">动态路由</h3>
+
+<p>使用 url_for(‘path’, param) 可以动态生成路由</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url_for("todo.update", todo_id=t.id)
+</code></pre></div></div>
+
+<p>上面代码中， 导向 todo（Blueprint 蓝图的名字）下update路由，动态部分是 todo_id,
+如果 todo.update 代表 /todo/update, id 是 1，则实际导向的是 /todo/update/1</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@main.route('/update/&lt;int:todo_id&gt;/', methods=['POST'])
+def update(todo_id):
+    """
+        更新TODO
+    """
+    Todo.update(todo_id, request.form)
+    return redirect(url_for('.index'))
+</code></pre></div></div>
+
+<p>上面代码负责接收 update 路由，def update(todo_id) 中 todo_id, flask 会根据请求动态传进来，
+如果是请求是上面 url_for 的情况，todo_id 则是 1</p>
+
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
