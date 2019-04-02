@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=a3f920711878554bd5d3cd5ca475b057a758abc9" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>数据结构 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="数据结构" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/python/data-struct.html" />
+<meta property="og:url" content="http://localhost:4000/python/data-struct.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/python/data-struct.html","headline":"数据结构","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="数据结构">数据结构</h1>
+
+<h2 id="数组">数组</h2>
+
+<p>平时最常使用的数据结构，以至于我们竟不知道它是数据结构。</p>
+
+<p>查询, 修改 复杂度 O(1)</p>
+
+<p>插入，删除 复杂度 O(n)</p>
+
+<h2 id="哈希表子典-对象-map">哈希表（子典， 对象， Map）</h2>
+
+<p>一种键值对映射关系。键对应一个数组的下标，存储有键和值。</p>
+
+<p>现在只考虑键是字符串的情形</p>
+
+<p>利用字符串的 ASCII 或 Unicode 码生成唯一码，唯一码和数组大小取模得到下标</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def _hash(self, s):
+        """
+        下划线开始的函数被我们视为私有函数
+        但实际上还是可以在外部调用, 这只是一个给自己看的标记
+        """
+        n = 1
+        f = 1
+        for i in s:
+            n += ord(i) * f
+            f *= 10
+        return n
+
+    def _index(self, key):
+        # 先计算出下标
+        return self._hash(key) % self.table_size 
+</code></pre></div></div>
+
+<p>由于 数组大小的限制，哈希表总是会碰撞，出现两个字符串对应一个下标的情况</p>
+
+<p>碰撞应对： 使用数组存储碰撞的结果，有几个键碰撞了就把几个键值存起来，取得时候遍历一下就行</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def get(self, key, default_value=None):
+        index = self._index(key)
+        # 取元素
+        v = self.table[index]
+        if isinstance(v, list):
+            # 遍历检查 key
+            for kv in v:
+                if kv[0] == key:
+                    return kv[1]
+        return default_value
+</code></pre></div></div>
+
+<h2 id="链表">链表</h2>
+
+<p>很基础的数据结构，是后面两个的基础</p>
+
+<p>查询， 修改 复杂度 O(n)</p>
+
+<p>插入，删除 复杂度 O(1)</p>
+
+<h3 id="遍历">遍历</h3>
+
+<p>从 head 节点开始遍历到 next 节点是 None</p>
+
+<p>遍历输出</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class LinkedList(object):
+    def __repr__(self):
+        l = list()
+        node = self.head
+        while node is not None:
+            l.append(node.element)
+            node = node.next
+        return str(l)
+</code></pre></div></div>
+
+<h3 id="反转">反转</h3>
+
+<p>设置一个节点存储反转后的链表，遍历每前进一步更新一下反转链表</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def reverse(self):
+        node = self.head
+        prev_node = None
+        while node is not None:
+            node_next = node.next
+            node.next = prev_node
+            prev_node = node
+            node = node_next
+        self.head = prev_node
+</code></pre></div></div>
+
+<h2 id="二叉树">二叉树</h2>
+
+<p>链表一个节点上有两个指向其他节点的节点是就是二叉树</p>
+
+<h3 id="遍历-1">遍历</h3>
+
+<p>分别递归左右分支完成遍历</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Tree(object):
+ def __init__(self, element=None):
+    self.element = element
+    self.left = None
+    self.right = None
+    
+ def traversal(self):
+    print(self.element)
+    if self.left is not None:
+        self.left.traversal()
+    if self.right is not None:
+        self.right.traversal()
+</code></pre></div></div>
+
+<h3 id="反转-1">反转</h3>
+
+<p>交换左右节点
+分别递归左右分支完成遍历</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def reverse(self):
+    print(self.element)
+    self.left, self.right = self.right, self.left
+    if self.left is not None:
+        self.left.reverse()
+    if self.right is not None:
+        self.right.reverse()
+</code></pre></div></div>
+
+<h2 id="图">图</h2>
+
+<p>一个节点连接了很多个其他节点，其他节点之间由相互连接。重要的是在这些连接中找到最短路径。</p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
