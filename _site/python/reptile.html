@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=a7a292bb7e445b6af0cd4d772d6f1eaccbf15662" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>爬虫 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="爬虫" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/python/reptile.html" />
+<meta property="og:url" content="http://localhost:4000/python/reptile.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/python/reptile.html","headline":"爬虫","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="爬虫">爬虫</h1>
+
+<h2 id="核心">核心</h2>
+
+<p>1、导入库</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import requests
+from pyquery import PyQuery as pq
+</code></pre></div></div>
+
+<p>2、requests 发请求，获得页面</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r = requests.get(url)
+page = r.content
+</code></pre></div></div>
+
+<p>3、pyquery 解析页面，得到想要的数据</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 解析的方法类似于 jquery
+e = pq(page)
+items = e('.item')
+...
+</code></pre></div></div>
+
+<p>如果页面是下面的类型，要使用 items = e(‘.item’, parser=”html”) 解析。
+<a href="https://pythonhosted.org/pyquery/index.html">pyquery 文档</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/1999/xhtml"</span><span class="nt">&gt;</span>' 
+</code></pre></div></div>
+
+<h2 id="模拟浏览器">模拟浏览器</h2>
+
+<p>有时候页面是前端渲染的，要执行 JS 才能得到完整的页面。因此我们需要一个浏览器运行js，渲染页面。这时就需要导入一些库帮我们做这些事情。</p>
+
+<p>导入库</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from selenium import webdriver
+</code></pre></div></div>
+
+<p>使用无头(headless)chrome 模拟浏览器</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import time
+
+# /Users/ww/Downloads/software 路径提前已经在环境变量里配了
+driver = webdriver.Chrome('/Users/ww/Downloads/software/chromedriver')
+driver.get(url)
+time.sleep(1)
+content = driver.page_source
+</code></pre></div></div>
+
+<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">chromedriver 文档</a></p>
+
+<p>爬取 iFrame 标签页面，使用 switch_to.frame</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> driver.switch_to.frame('contentFrame')
+</code></pre></div></div>
+
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
