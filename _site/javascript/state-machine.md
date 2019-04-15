@@ -1,0 +1,1 @@
+[源码仓库](https://github.com/jakesgordon/javascript-state-machine)
