@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+         .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <!-- 圣杯布局 -->
+    <style>
+
+        .body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .body header,
+        .body footer {
+            /* grow shrink 为 1 basis 自动 */
+            /* 存在剩余空间放大，空间不足缩小 */
+            flex: 1;
+            background: #666666;
+            font-size: larger;
+            color: white;
+        }
+
+        .body-content {
+            display: flex;
+            /* grow shrink 为 0 basis 50% */
+            /* 存在剩余空间不放大，空间不足时不缩小，保持自己的高度 */
+            flex: 0 0 500px;
+            font-size: larger;
+            color: #694132;
+        }
+
+        .body-content .content {
+            background: #d6d6d6;
+            flex: 1;
+        }
+
+        .nav,
+        .ad {
+            flex: 0 0 12em;
+        }
+
+        .nav {
+            order: -1;
+            background: #76bbdd;
+        }
+
+        .ad {
+            background: #ff6532;
+        }
+
+        @media (max-width: 768px) {
+            .body-content {
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .nav,
+            .ad,
+            .content {
+                flex: auto;
+            }
+        }
+    </style>
+    <title>圣杯布局</title>
+</head>
+
+<body>
+    <!-- 升杯布局 -->
+    <div class="body">
+        <header class="flex-center">
+            #header
+        </header>
+        <div class=body-content>
+            <div class="nav flex-center">
+                #left
+            </div>
+            <div class="content flex-center">
+                #content
+            </div>
+            <div class="ad flex-center">
+                #right
+            </div>
+        </div>
+        <footer class="flex-center">
+            #footer
+        </footer>
+    </div>
+</body>
+
+</html>

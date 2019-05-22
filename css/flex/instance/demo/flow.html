@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex </title>
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: center;
+        }
+    </style>
+
+    <!-- 流式布局 -->
+    <style>
+        .flow-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            width: 200px;
+            height: 150px;
+            background: #000000;
+            margin-right: 30px;
+            margin-bottom: 30px;
+        }
+
+        .flow-content .flow-box {
+            width: 24%;
+            height: 32%;
+            background: white;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- 流式布局 -->
+    <div class=container>
+        <div class="flow-content">
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+        </div>
+        <div class="flow-content">
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+        </div>
+        <div class="flow-content">
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+            <div class="flow-box"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

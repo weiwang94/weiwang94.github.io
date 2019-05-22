@@ -18,3 +18,7 @@ https://pages.github.com/
 <!-- bundle exec jekyll serve -->
 
 [更多](https://pages.github.com/themes/)
+
+# 本地预览
+
+    $ bundle exec jekyll serve

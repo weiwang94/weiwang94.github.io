@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* transition */
+
+        .div-transtion img {
+            width: 300px;
+            height: 168.75px;
+            transition: 1s width ease-in, 1s 1s height;
+        }
+
+        .div-transtion img:hover {
+            width: 500px;
+            height: 368.75px;
+        }
+
+        /* animation */
+
+        .div-animation {
+            width: 300px;
+            height: 100px;
+            background: #c00;
+        }
+
+        .div-animation:hover {
+            animation: 3s 1s rainbow 3 alternate;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background: #c00;
+            }
+
+            50% {
+                background: orange;
+            }
+
+            100% {
+                background: yellowgreen;
+            }
+        }
+
+        /* steps */
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        h1 {
+            font: bold 200% Consolas, Monaco, monospace;
+            border-right: .1em solid;
+            width: 16.5em;
+            /* fallback */
+            width: 28ch;
+            /* # of chars */
+            margin: 2em 1em;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 20s steps(28, end),
+                /* # of steps = # of chars */
+                blink-caret .5s step-end infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="div-transtion">
+        <img src="./assets/img/nikv.jpg" alt="">
+    </div>
+
+    <div class="div-animation">
+        
+    </div> -->
+
+    <h1>撒哈拉的夏天</h1>
+
+</body>
+
+</html>

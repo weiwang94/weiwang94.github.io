@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+         .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <!-- 固定底栏 -->
+    <style>
+        .site {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+    
+        .site header {
+            background-color: rgba(147, 128, 108, .1)
+        }
+    
+        .site footer {
+            background: #404040;
+        }
+    
+        .site header,
+        .site footer {
+            height: 100px;
+        }
+    
+        .site-content {
+            flex: 1;
+        }
+    </style>
+
+    <title>固定底栏</title>
+</head>
+<body class="site">
+    
+<!-- 固定底栏 -->
+    <header class="flex-center">
+        #header
+    </header>
+    <div class="site-content flex-center">
+        <p>
+            我的高度自动伸缩， #header #footer固定高度剩下的就是我的最小高度
+        </p>
+    </div>
+    <footer class="flex-center">
+        #footer
+    </footer>
+
+
+</body>
+</html>

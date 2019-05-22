@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- 输入框附加组件布局 -->
+    <style>
+        .div-input {
+            width: 400px;
+            display: flex;
+            margin: 0 30px 30px 0;
+        }
+
+        .div-input .span-tip {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background: #f4f3f0;
+            border: 1px solid hsla(31, 15%, 50%, .25);
+        }
+
+        .div-input .input-field-right {
+            flex: 1;
+            border: 1px solid hsla(31, 15%, 50%, .25);
+            border-left: 0;
+        }
+
+        .div-input .input-field-left {
+            flex: 1;
+            border: 1px solid hsla(31, 15%, 50%, .25);
+            border-right: 0;
+        }
+    </style>
+
+    <title>输入框布局</title>
+</head>
+
+<body>
+
+    <!-- 输入框布局 -->
+    <div class="container">
+
+        <div class="div-input">
+            <span class="span-tip"> Amount </span>
+            <input class="input-field-right" type="text">
+        </div>
+        <div class="div-input">
+            <input class="input-field-left" type="text">
+            <span class="span-tip"> Go </span>
+        </div>
+    </div>
+
+</body>
+
+</html>

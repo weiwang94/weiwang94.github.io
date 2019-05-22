@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- 悬挂式布局 -->
+    <style>
+        .grid {
+            display: flex;
+        }
+    
+        .media {
+            display: flex;
+            align-items: flex-start;
+        }
+    
+        .media .media-img {
+    
+            margin-right: 10px;
+        }
+    
+        .media .media-p {
+            flex: 1;
+        }
+    </style>
+
+    <title>悬挂式布局</title>
+</head>
+<body>
+    
+    <!-- 悬挂布局 -->
+    <div class="container">
+    
+        <div class="grid">
+            <div class="grid-cell">
+                <div class="media">
+                    <img class="media-img" src="/assets/img/cat.png" alt="">
+                    <p class="media-p">
+                        虽然语雀的理想很远大，但要达成这个目标需要一些列的产品功能
+                    </p>
+                </div>
+    
+                <div class="media">
+                    <img class="media-img" src="/assets/img/cat.png" alt="">
+                    <p class="media-p">
+                        虽然语雀的理想很远大，但要达成这个目标需要一些列的产品功能，目前呈现给大家的只是一个刚好可用的文档工具，还有非常多的功能有待开发。感谢大家愿意与语雀一起成长，共同开启全新知识创作之旅。语雀会持续努力，为你奉上精心打磨、值得信赖的产品。如果你觉得语雀好用，请推荐给同事和朋友
+                    </p>
+                </div>
+            </div>
+    
+            <div class="grid-cell">
+                <div class="media">
+                    <img class="media-img" src="/assets/img/cat.png" alt="">
+                    <p class="media-p">
+                        虽然语雀的理想很远大，但要达成这个目标需要一些列的产品功能，目前呈现给大家的只是一个刚好可用的文档工具，还有非常多的功能有待开发。感谢大家愿意与语雀一起成长，共同开启全新知识创作之旅。语雀会持续努力，为你奉上精心打磨、值得信赖的产品。如果你觉得语雀好用，请推荐给同事和朋友
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+</body>
+</html>
