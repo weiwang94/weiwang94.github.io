@@ -5,26 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 圣杯布局 -->
     <style>
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-         .flex-center {
+        .flex-center {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-    </style>
-
-    <!-- 圣杯布局 -->
-    <style>
 
         .body {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            margin: 0;
         }
 
         .body header,
@@ -81,9 +74,8 @@
     <title>圣杯布局</title>
 </head>
 
-<body>
+<body class="body">
     <!-- 升杯布局 -->
-    <div class="body">
         <header class="flex-center">
             #header
         </header>
@@ -101,7 +93,6 @@
         <footer class="flex-center">
             #footer
         </footer>
-    </div>
 </body>
 
 </html>
