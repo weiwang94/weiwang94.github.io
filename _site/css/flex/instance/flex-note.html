@@ -25,11 +25,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="云想衣裳，花想容" />
 <meta property="og:description" content="云想衣裳，花想容" />
-<link rel="canonical" href="http://localhost:4000/css/flex/instance/flex.html" />
-<meta property="og:url" content="http://localhost:4000/css/flex/instance/flex.html" />
+<link rel="canonical" href="http://localhost:4000/css/flex/instance/flex-note.html" />
+<meta property="og:url" content="http://localhost:4000/css/flex/instance/flex-note.html" />
 <meta property="og:site_name" content="撒哈拉" />
 <script type="application/ld+json">
-{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/flex/instance/flex.html","headline":"Flex 布局实例","@context":"http://schema.org"}</script>
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/flex/instance/flex-note.html","headline":"Flex 布局实例","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -63,16 +63,10 @@
 
 <p>参考 阮一峰的 <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">Flex布局教程: 实例篇</a></p>
 
-<p>以及<a href="https://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a></p>
+<p><a href="/css/flex/instance/demo/dice.html">骰子布局</a>
+<img src="/css/flex/instance/imgs/dice.png" alt="骰子布局实例" /></p>
 
-<h2 id="骰子布局">骰子布局</h2>
-<p><img src="/css/flex/instance/imgs/dice.png" alt="骰子布局实例" /></p>
-
-<p><a href="/css/flex/instance/demo/dice.html"><strong>实例代码</strong></a></p>
-
-<p>假设一根轴线最多只能容纳 3 个点</p>
-
-<h3 id="一根轴线的布局小于等于三个点">一根轴线的布局(小于等于三个点)</h3>
+<h2 id="一根轴线的布局小于等于三个点-假设一根轴线最多只能容纳-3-个点">一根轴线的布局(小于等于三个点， 假设一根轴线最多只能容纳 3 个点)</h2>
 
 <p>1 个点的布局，先考虑主轴（just-content）的布局，再考虑交叉轴（align-content）的布局</p>
 
@@ -80,7 +74,7 @@
 
 <p>3 个点的布局，同两个点的情况，只是最多需要使用 2 次 <em>align-self</em></p>
 
-<h3 id="多根轴线的布局大于-三个点">多根轴线的布局(大于 三个点)</h3>
+<h2 id="多根轴线的布局大于-三个点">多根轴线的布局(大于 三个点)</h2>
 
 <p>要使 3 个点之后的点自动换行，需要使用</p>
 
@@ -91,7 +85,7 @@
 
 <p>稍微复杂的情况： 多根轴线的布局不一致，或者轴线没被填满。轴线布局不一致需要单独设置每根轴线的布局；轴线没被填满，需要增加标签作为轴线</p>
 
-<p><img src="./imgs/dice-four.png" alt="实例" /></p>
+<p><img src="./imgs/dice-four.png" alt="网格布局实例" /></p>
 
 <p>比如，四个点的第一种情况, 属于布局不一致，前三个点的布局是 <em>just-content： space-between</em>， 后一个点的布局是 <em>just-content： flex-end</em>；</p>
 
@@ -99,14 +93,12 @@
 
 <p>骰子布局的大概思路就是这样，学会了就掌握了<em>固定宽度</em>的布局， 需要<em>宽度自适应</em>请往下看。</p>
 
-<h2 id="网格布局">网格布局</h2>
-<p><img src="/css/flex/instance/imgs/grid.png" alt="网格布局实例" /></p>
-
-<p><a href="/css/flex/instance/demo/grid.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/grid.html">网格布局</a>
+<img src="/css/flex/instance/imgs/grid.png" alt="网格布局实例" /></p>
 
 <p>如图网格， 在网格里面添加几个元素，宽度就会等分；同一根轴线的高度一致；</p>
 
-<h3 id="宽度等分">宽度等分</h3>
+<h2 id="宽度等分">宽度等分</h2>
 
 <p>宽度等分基本思路是宽度不够时自动自动缩小， 有剩余空间时宽度自动增加，使用下面的属性刚好可以达到这个目的。</p>
 
@@ -129,7 +121,7 @@ flex-basis: 0%;
 
 <p>有关 flex 属性缩写根据什么规则展开，请看 <a href="https://segmentfault.com/q/1010000004080910">这个提问下的答案</a></p>
 
-<h3 id="高度一致">高度一致</h3>
+<h2 id="高度一致">高度一致</h2>
 
 <p>高度一致很简单，是因为</p>
 
@@ -138,10 +130,8 @@ flex-basis: 0%;
 
 <p>交叉轴方向默认是填满</p>
 
-<h2 id="输入框布局">输入框布局</h2>
-<p><img src="/css/flex/instance/imgs/input.png" alt="输入框布局实例" /></p>
-
-<p><a href="/css/flex/instance/demo/input.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/input.html">输入框布局</a>
+<img src="/css/flex/instance/imgs/input.png" alt="输入框布局实例" /></p>
 
 <p>如图输入框左边或右边有一个提示性文字，提示性文字的宽度不变，输入框长度自适应变化</p>
 
@@ -150,10 +140,8 @@ flex-basis: 0%;
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex: 1
 </code></pre></div></div>
 
-<h2 id="圣杯布局">圣杯布局</h2>
-<p><img src="./imgs/holy-grail.png" alt="圣杯布局实例" /></p>
-
-<p><a href="./demo/holy-grail.html"><strong>实例代码</strong></a></p>
+<p><a href="./demo/holy-grail.html">圣杯布局</a>
+<img src="./imgs/holy-grail.png" alt="圣杯布局实例" /></p>
 
 <p><a href="https://en.wikipedia.org/wiki/Holy_grail_(web_design)">圣杯布局</a>大体上由三部分组成，头部，中间，底部，
 头部，底部和高度度固定，中间高度根据内容自动撑开；中间又由左右中三部分构成， 左右宽度固定，中间宽度自适应。中间部分的高度
@@ -187,10 +175,8 @@ flex: 0 0 12em;
 align-items: stretch;
 </code></pre></div></div>
 
-<h2 id="固定底栏布局">固定底栏布局</h2>
-<p><img src="./imgs/sticky-footer.png" alt="固定底栏布局实例" /></p>
-
-<p><a href="./demo/sticky-footer.html"><strong>实例代码</strong></a></p>
+<p><a href="./demo/sticky-footer.html">固定底栏布局</a>
+<img src="./imgs/sticky-footer.png" alt="固定底栏布局实例" /></p>
 
 <p>我们常常希望底栏(#footer)保持在底部，即避免中间正文高度不够时底栏跟着上移了。</p>
 
@@ -199,12 +185,10 @@ align-items: stretch;
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex: 1;
 </code></pre></div></div>
 
-<p>仔细推敲的话有个地方说不通，就是如果正文的高度超出了最大高度，却没有缩小；按理 flex-shrink 为1 剩余空间不足应该缩小；这个问题我也不懂，先解释为浏览器会始终让内容显示出来。</p>
+<p>仔细推敲的话有个地方说不通，就是如果正文的高度超出了最大高度，却没有缩小；按理 flex-shrink 为1 剩余空间不足应该缩小；这个问题我也不懂，先解释为浏览器会始终让内容显示出来，空间不够那加个滚动条呗。</p>
 
-<h2 id="悬挂式布局">悬挂式布局</h2>
-<p><img src="./imgs/media-object.png" alt="悬挂式布局实例" /></p>
-
-<p><a href="./demo/media-object.html"><strong>实例代码</strong></a></p>
+<p><a href="./demo/media-object.html">悬挂式布局</a>
+<img src="./imgs/media-object.png" alt="悬挂式布局实例" /></p>
 
 <p>左右两栏分别是图片加文字的内容，正常排列的话高的那栏会撑开高度，这样的问题是不能有效的利用空间。</p>
 
@@ -212,23 +196,8 @@ align-items: stretch;
 
 <p>方法是分解，把两栏分开来看，主轴设为纵向，就可以完美解决</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="grid"&gt;
-    &lt;div class="grid-cell"&gt;
-        &lt;div class="media"&gt;&lt;/div&gt;
-         &lt;div class="media"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-     &lt;div class="grid-cell"&gt;
-        &lt;div class="media"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre></div></div>
-
-<p>列数和内容多起来貌似是瀑布流布局</p>
-
-<h2 id="流式布局">流式布局</h2>
-<p><img src="./imgs/flow.png" alt="流式布局实例" /></p>
-
-<p><a href="./demo/flow.html"><strong>实例代码</strong></a></p>
+<p><a href="./demo/flow.html">流式布局</a>
+<img src="./imgs/flow.png" alt="流式布局实例" /></p>
 
 <p>内容在宽度不足时，换行依次排列</p>
 

@@ -22,9 +22,7 @@
 
         .body header,
         .body footer {
-            /* grow shrink 为 1 basis 自动 */
-            /* 存在剩余空间放大，空间不足缩小 */
-            flex: 1;
+            height: 100px;
             background: #666666;
             font-size: larger;
             color: white;
@@ -32,9 +30,8 @@
 
         .body-content {
             display: flex;
-            /* grow shrink 为 0 basis 50% */
-            /* 存在剩余空间不放大，空间不足时不缩小，保持自己的高度 */
-            flex: 0 0 500px;
+            /* 存在剩余空间放大，空间不足不缩小，高度自动由内容决定 */
+            flex: 1 0 auto;
             font-size: larger;
             color: #694132;
         }
@@ -80,14 +77,42 @@
             #header
         </header>
         <div class=body-content>
-            <div class="nav flex-center">
-                #left
-            </div>
-            <div class="content flex-center">
+            <div class="content">
                 #content
+                <p>
+                    活着的每天都要有激情。<br>
+                    <ul>
+                        <li>
+                            别压抑自己
+                        </li>
+                        <li>
+                            控制自己掌控别人
+                        </li>
+                        <li>
+                            大海无量
+                        </li>
+                        <li>
+                            蠢蛋
+                        </li>
+                        <li>
+                            提莫队长正在送命
+                        </li>
+                        <li>
+                            我的高度最大，我两边的兄弟的高度都要和我保持一致！！！
+                        </li>
+                        <li>
+                            当， 当然，我们的最小使命是充满除了 header哥 footer弟 剩下的空间
+                        </li>
+                    </ul>   
+                </p>
+            </div>
+            <div class="nav">
+                这里是导航栏<br>
+                九尾狐妖 <br>
+                盲仔<br>
             </div>
             <div class="ad flex-center">
-                #right
+                广告位招租
             </div>
         </div>
         <footer class="flex-center">
