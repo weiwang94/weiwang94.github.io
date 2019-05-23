@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+        .content {
+            height: 400px;
+            background: #efefef;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            display: block;
+             position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -100px;
+            transform-style: preserve-3d;
+            transform: rotateX(-33.5deg) rotateY(45deg);
+            transform-origin: 100px 100px;
+            animation: fastspin 6s ease-in-out infinite 2s;
+        }
+
+        .box .surface {
+            display: block;
+            opacity: 0.8;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(transparent 30%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .box .surface::before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            filter: blur(10px);
+        }
+
+        .box .one {
+            /* background: red; */
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .box .two {
+            /* background: #feff00; */
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        .box .three {
+            /* background: #008000; */
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .box .four {
+            /* background: #ff9800; */
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .box .five {
+            /* background: #6739b7; */
+            transform: rotateZ(0deg) translateZ(-50px);
+        }
+
+        .box .six {
+            /* background: #2296f3; */
+            transform: rotateZ(-90deg) translateZ(50px);
+        }
+
+        @keyframes fastspin {
+            0% {
+                -webkit-transform: rotateX(-33.5deg) rotateY(45deg);
+                transform: rotateX(-33.5deg) rotateY(45deg);
+            }
+
+            40%,
+            to {
+                -webkit-transform: rotateX(-33.5deg) rotateY(-315deg);
+                transform: rotateX(-33.5deg) rotateY(-315deg);
+            }
+        }
+    </style>
+
+    <style>
+        .div-box {
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            border: 5px solid red;
+            background: orange;
+        }
+        .div-box-content {
+            box-sizing: content-box;
+        }
+        .div-box-border {
+            box-sizing: border-box;
+        }
+    </style>
+
+    <title>animation-3d</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <ul class="box">
+            <li class="surface one"></li>
+            <li class="surface two"></li>
+            <li class="surface three"></li>
+            <li class="surface four"></li>
+            <li class="surface five"></li>
+            <li class="surface six"></li>
+        </ul>
+    </div>
+
+    <!-- <div class="div-box div-box-content">
+        我是一个内容盒子
+    </div>
+
+    <div class="div-box div-box-border">
+        我是一个内容盒子
+    </div> -->
+
+</body>
+
+</html>

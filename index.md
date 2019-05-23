@@ -4,4 +4,4 @@
 
 [《代码大全》读书笔记](code_complete/index)
 
-[flex 布局](css/flex/instance/flex.md)
+[CSS](css/index)

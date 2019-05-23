@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=640">
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=dc672a540bd7dbf33948b33a067ac305dd62d2c7" media="screen">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5852a6003fe8b016f7ff06faf33547df55734310" media="screen">
     <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
     <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
 
@@ -91,7 +91,7 @@
 
 <p>稍微复杂的情况： 多根轴线的布局不一致，或者轴线没被填满。轴线布局不一致需要单独设置每根轴线的布局；轴线没被填满，需要增加标签作为轴线</p>
 
-<p><img src="./imgs/dice-four.png" alt="实例" /></p>
+<p><img src="/css/flex/instance/imgs/dice-four.png" alt="实例" /></p>
 
 <p>比如，四个点的第一种情况, 属于布局不一致，前三个点的布局是 <em>just-content： space-between</em>， 后一个点的布局是 <em>just-content： flex-end</em>；</p>
 
@@ -151,9 +151,9 @@ flex-basis: 0%;
 </code></pre></div></div>
 
 <h2 id="圣杯布局">圣杯布局</h2>
-<p><img src="./imgs/holy-grail.png" alt="圣杯布局实例" /></p>
+<p><img src="/css/flex/instance/imgs/holy-grail.png" alt="圣杯布局实例" /></p>
 
-<p><a href="./demo/holy-grail.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/holy-grail.html"><strong>实例代码</strong></a></p>
 
 <p><a href="https://en.wikipedia.org/wiki/Holy_grail_(web_design)">圣杯布局</a>大体上由三部分组成，头部，中间，底部，
 头部，底部和高度度固定，中间高度根据内容自动撑开；中间又由左右中三部分构成， 左右宽度固定，中间宽度自适应。中间部分的高度
@@ -188,9 +188,9 @@ align-items: stretch;
 </code></pre></div></div>
 
 <h2 id="固定底栏布局">固定底栏布局</h2>
-<p><img src="./imgs/sticky-footer.png" alt="固定底栏布局实例" /></p>
+<p><img src="/css/flex/instance/imgs/sticky-footer.png" alt="固定底栏布局实例" /></p>
 
-<p><a href="./demo/sticky-footer.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/sticky-footer.html"><strong>实例代码</strong></a></p>
 
 <p>我们常常希望底栏(#footer)保持在底部，即避免中间正文高度不够时底栏跟着上移了。</p>
 
@@ -202,9 +202,9 @@ align-items: stretch;
 <p>仔细推敲的话有个地方说不通，就是如果正文的高度超出了最大高度，却没有缩小；按理 flex-shrink 为1 剩余空间不足应该缩小；这个问题我也不懂，先解释为浏览器会始终让内容显示出来。</p>
 
 <h2 id="悬挂式布局">悬挂式布局</h2>
-<p><img src="./imgs/media-object.png" alt="悬挂式布局实例" /></p>
+<p><img src="/css/flex/instance/imgs/media-object.png" alt="悬挂式布局实例" /></p>
 
-<p><a href="./demo/media-object.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/media-object.html"><strong>实例代码</strong></a></p>
 
 <p>左右两栏分别是图片加文字的内容，正常排列的话高的那栏会撑开高度，这样的问题是不能有效的利用空间。</p>
 
@@ -226,9 +226,9 @@ align-items: stretch;
 <p>列数和内容多起来貌似是瀑布流布局</p>
 
 <h2 id="流式布局">流式布局</h2>
-<p><img src="./imgs/flow.png" alt="流式布局实例" /></p>
+<p><img src="/css/flex/instance/imgs/flow.png" alt="流式布局实例" /></p>
 
-<p><a href="./demo/flow.html"><strong>实例代码</strong></a></p>
+<p><a href="/css/flex/instance/demo/flow.html"><strong>实例代码</strong></a></p>
 
 <p>内容在宽度不足时，换行依次排列</p>
 
