@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- 基本选择器 -->
+    <style>
+        /* 属性选择器 */
+        p[title] {
+            font-style: italic;
+        }
+
+        span[class="span"] {
+            color: red;
+        }
+
+        /* 伪元素选择器 */
+        /* 选择的是第一个 span， 所有处于第一个位置的span元素 */
+        span:first-child {
+            color: green;
+        }
+
+         /* 伪类选择器 */
+         /* 所有 p 中选中的文字 */
+        p::selection {
+            color: white;
+        }
+    </style>
+
+    <!-- 关系选择器 -->
+    <style>
+        article {
+            background: gray;
+        }
+        /* 只能选到相邻后代元素span  我是span */
+        article > span {
+            font-weight: bolder;
+        }
+
+        /* 选择和 p 相邻的所有 span 标签 */
+        p ~ span  {
+            text-decoration:underline;
+        }
+
+        /* p 先选到了 第一个 p 标签， 然后选和它同级的第一个 span */
+        p + span  {
+            color: white;
+        }
+    </style>
+
+    <title>选择器笔记</title>
+</head>
+
+<body>
+
+    <article>
+        <h1>我是文章标题</h1>
+        <p class="p-normal" title="content">
+            我是一篇文章的正文
+            <span> 第一个span</span>
+            <span class="span">我是span</span>
+        </p>
+        <span class="span-also">我也是span</span>
+        <span> 我还以为你从来都不会选我 </span>
+        <p> 正确评估你所回避的事情，是否应该被回避</p>
+    </article>
+
+</body>
+
+</html>

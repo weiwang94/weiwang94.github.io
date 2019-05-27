@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+        .container {
+            width: 100%;
+            height: 400px;
+            background: #efefef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 800px;
+        }
+
+        .container .content {
+            width: 64px;
+            height: 36px;
+            zoom: 2;
+            position: relative;
+            /* 3d */
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            animation: photo-rotate 18s ease-in-out 2s infinite;
+        }
+
+        .content .photo {
+             width: 64px;
+            height: 36px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 0;
+            transition: opacity 1s, transform 1s;
+        }
+
+        .content .photo:nth-child(1) {
+            transform: rotateY(0deg) translateZ(98px);
+            background-color: rgba(153, 204, 204, 0.8);
+        }
+
+        .content .photo:nth-child(2) {
+            background-color: rgba(153, 204, 204, 0.8);
+            transform: rotateY(60deg) translateZ(98px);
+        }
+
+        .content .photo:nth-child(3) {
+            background-color: rgba(153, 204, 204, 0.8);
+            transform: rotateY(120deg) translateZ(98px);
+        }
+
+        .content .photo:nth-child(4) {
+            background-color: rgba(153, 204, 204, 0.8);
+            transform: rotateY(180deg) translateZ(98px);
+        }
+
+        .content .photo:nth-child(5) {
+            background-color: rgba(153, 204, 204, 0.8);
+            transform: rotateY(240deg) translateZ(98px);
+        }
+
+        .content .photo:nth-child(6) {
+            background-color: rgba(153, 204, 204, 0.8);
+            transform: rotateY(300deg) translateZ(98px);
+        }
+
+        @keyframes photo-rotate {
+            0% {
+                -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+
+            16.7% {
+                -webkit-transform: rotateY(60deg);
+                transform: rotateY(60deg);
+            }
+
+            33.3% {
+                -webkit-transform: rotateY(120deg);
+                transform: rotateY(120deg);
+            }
+
+            50% {
+                -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+
+            66.7% {
+                -webkit-transform: rotateY(240deg);
+                transform: rotateY(240deg);
+            }
+
+            83.3% {
+                -webkit-transform: rotateY(300deg);
+                transform: rotateY(300deg);
+            }
+
+            100% {
+                -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+
+    <title>photo wall</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+
+            <div class="photo"></div>
+            <div class="photo"></div>
+            <div class="photo"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
