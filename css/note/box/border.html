@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border</title>
+
+    <style>
+        .transparent::before {
+            content: '*';
+            color: red;
+        }
+        .transparent {
+            border: 10px solid transparent;
+        }
+
+        .transparent:hover {
+            border: 10px solid green;
+        }
+    </style>
+
+    <!-- 图形 -->
+    <style>
+        .triangle {
+            display: inline-block;
+            width: 0;
+            border: 10px solid;
+            border-color: #f30 transparent transparent;
+        }
+        .triangle-1 {
+            display: inline-block;
+            width: 0;
+            border-width: 10px 20px;
+            border-style: solid;
+            border-color: #f30 #f30 transparent transparent;
+        }   
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- border color 透明 -->
+        <i class="transparent"></i>
+
+        <i class="triangle"></i>
+        <i class="triangle-1"></i>
+    </div>
+</body>
+
+</html>

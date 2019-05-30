@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>容器的宽度</title>
+
+    <style>
+        /* 块 */
+        .block {
+            background: red;
+        }
+        /* 内联 */
+        .inline {
+            background: green;
+        }
+        /* 内联-块 */
+        .inline-block {
+            display: inline-block;
+            background: blue;
+            width: 200px;
+        }
+        /* 幽灵空白节点 */
+        .div-span {
+            background: red
+        }
+        .div-span span {
+            display: inline-block;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 块级盒子 -->
+    <div class="block">块级盒子, 我独占一行，我想水一样占满了一行的宽度😃</div>
+
+    <!-- 内联盒子 -->
+    <span class="inline">内联盒子，我的宽度由内容决定，这一行没有被占满， 别的内联盒子也可以和我共同在一行</span>
+    <span  class="inline"> 😝内联盒子</span>
+
+    <!-- 内联-块 -->
+    <span class="inline-block">我表现为内联盒子, 但是我可以设置宽度， 我的宽度是 200 像素</span>
+
+    <!-- 幽灵空白节点 -->
+    <!-- 块级盒子占据一行，子元素内联块前面的空白节点的高度撑高了块级盒子的高度，所以有了背景色 -->
+    <!-- 块级盒子高度和内联盒子高度是一致的 -->
+    <div class="div-span">
+        <!-- 因为 span 设置了 display: inline-block, 具有内联和块的特点， 有字体和行高属性的宽度为 0 的盒子-->
+        <span></span>
+    </div>
+</body>
+</html>

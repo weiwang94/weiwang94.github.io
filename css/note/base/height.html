@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- height: 100%; -->
+    <style>
+        /* 只有设置了我两， div 才有高度 */
+        html, body {
+            height: 100%;
+        }
+        .box {
+            /* 多余 */
+            width: 100%; 
+            /* 无用 */
+            height: 50%;
+            background: red;
+        }
+    </style>
+
+    <style>
+        .box-position {
+            margin: 0 atuo;
+            position: relative;
+        }
+        .box-position a {
+            /* 在绝对定位下 a 标签的高度由父元素的高度宽度决定 */
+            width: 50%;
+            height: 100%;
+            opacity: 0.5;
+            position: absolute;
+        }
+        .box-position a:nth-child(1) {
+            left: 0;
+            background: red;
+        }  
+        .box-position a:nth-child(2) {
+            right: 0;
+            background: green;
+        }   
+    </style>
+
+    <title>高度自动</title>
+</head>
+<body>
+
+    <!-- 普通高度确定 -->
+    <div class="box"></div>
+
+    <!-- 绝对定位高度确定 -->
+    <div class="box-position">
+        <a href="#"></a>
+        <a href="#"></a>
+        我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，
+        我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，我来是内容，
+    </div>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ffc33019ac6597563cd431325fae2941a805fecf" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>盒模型 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="盒模型" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/css/box.html" />
+<meta property="og:url" content="http://localhost:4000/css/box.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/box.html","headline":"盒模型","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="盒模型">盒模型</h1>
+
+<p>盒模型包括 content，padding， border， margin</p>
+
+<h2 id="content">content</h2>
+
+<h3 id="从替换元素说起">从替换元素说起</h3>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element">替换元素</a>的内容可以替换，比如 img标签，展示不同的图片通过对 src 属性的替换来完成。</p>
+
+<p>替换元素的内容不受元素 CSS 控制，例如 iframe 里面的网页具有独立的样式。</p>
+
+<p>元素的 CSS 仅能控制替换元素的大小或位置</p>
+
+<p>我所理解的最常见的替换元素就是元素的内容由外部决定，比如 img 是从外部加载图片，通常浏览器发起一个请求从外部获取图片；iframe 从外部加载网页。</p>
+
+<p>可以理解为浏览器要显示替换元素的内容，必须从它的属性获取内容，这个属性可以直接存储的就是内容，也可以存储的内容的地址。</p>
+
+<h3 id="替换元素的宽高">替换元素的宽高</h3>
+
+<p>css 宽高 &gt; HTML 中设置的宽高 &gt; 元素本身宽高</p>
+
+<p>指定元素宽高时，即前两种情况，元素依据 (object-fill)[https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit] 属性的设置展示。</p>
+
+<h3 id="替换元素的属性">替换元素的属性</h3>
+
+<h4 id="src-属性">src 属性</h4>
+
+<p>以 img 为例，如果去掉 src 属性，想下面这样，它就变成了普通内联元素。我称 src 属性为替换元素的替换属性，没有替换属性的元素就不是替换元素。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img&gt;
+</code></pre></div></div>
+
+<h4 id="content-属性">content 属性</h4>
+
+<p>具有 content 属性的元素被称为<strong>匿名替换元素</strong></p>
+
+<p>content 只是改变外观的显示，仅此而已。因此在 SEO 或者选中内容的时候是无法得到 content 的内容展示。</p>
+
+<p>content 的值可以是 url 加载外部资源，也可以是字符串。</p>
+
+<h5 id="字符串作为-content-值的几种形式">字符串作为 content 值的几种形式</h5>
+
+<p>最简单的使用字符串作为值</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>content: ''
+</code></pre></div></div>
+
+<p>使用 id 属性来作为 content 的值，注意 id 不能加引号</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>content: attr(id);
+</code></pre></div></div>
+
+<p>使用 counter 作为 content 的值</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>counter-reset: wang;
+content: ' ' counter(wang) ' ';
+</code></pre></div></div>
+
+<p>使用引号 open-quote 和 close-quote，表示引号的变量</p>
+
+<p><a href="./note/box/content.html">代码实例</a></p>
+
+<h2 id="padding">padding</h2>
+
+<p><a href="./note/box/padding.html">代码实例</a></p>
+
+<h2 id="margin">margin</h2>
+
+<h3 id="margin-的取值">margin 的取值</h3>
+
+<p>margin 表示和相邻元素的距离，值越大距离约大。</p>
+
+<p>有意思的是取负值时，距离是负的，负值意味着距离近到两者之间发生了重合。</p>
+
+<p>取负值有两种情况，一种是宽度固定，负值致使偏移原来的位置；一种是宽度不固定，负值致使宽度增加。</p>
+
+<h3 id="margin-合并">margin 合并</h3>
+
+<p>margin合并的几种情况， 相邻元素、父子元素，元素自身。</p>
+
+<p>合并计算： 正正取较大者，正负相加， 负负取绝对值较大者。</p>
+
+<p>marigin 合并的意义在于使元素之间的距离适当，不至于过大也不至于过小。</p>
+
+<p>在父子元素发生 margin 合并时常使用使父元素成为一个块级上下文的发放来消除 margin 合并。</p>
+
+<h3 id="marginauto">margin：auto</h3>
+
+<p>margin: auto 的意义是 margin 的值取剩余空间的值。</p>
+
+<p>因为<strong>块级盒子</strong>默认在水平方向占据所有空间，所以剩余空间这条符合。所以要想靠右设置”margin-left: auto;”,居中设置左右 margin 为 auto。</p>
+
+<p><a href="./note/box/margin.html">代码实例</a></p>
+
+<h2 id="border">border</h2>
+
+<p>border 是元素的边框，只能取固定值，不能取百分比</p>
+
+<p>border-color: transparent; 可以增大点击面积。</p>
+
+<p>border 可以画三角形。</p>
+
+<p><a href="./note/box/border.html">代码实例</a></p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>

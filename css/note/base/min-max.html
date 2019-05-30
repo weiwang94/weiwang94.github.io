@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>宽度和高度的最大最小值</title>
+
+    <style>
+        .container {
+            height: 100vh;
+            background: #f5f5d5;
+        }
+        .box-width {
+            min-width: 640px;
+            max-width: 960px;
+        }
+        /* 设置最大高度为 0 限制高度为 0 */
+        .box-height p:nth-child(2) {
+            max-height: 0px;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <!-- 最大或最小宽度 -->
+        <div class="box-width">
+            最大宽度 960px， 最小宽度 640px;
+        </div>
+        <hr>
+        <!-- 最大或最小高度 -->
+        <div class="box-height">
+            我是一段内容
+            <p>
+                更多内容
+            </p>
+            <p>
+                隐藏的更多内容
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>

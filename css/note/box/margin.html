@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin</title>
+
+    <!-- 使用块级盒子 margin 为负 布局 -->
+    <style>
+        .father {
+            width: 300px;
+            height: 60px;
+            background: red;
+        }
+        /* son 宽度默认充满可用空间，margin 为负，故宽度会增加 */
+        /* son 的尺寸会多出来 40 px */
+        .father .son {
+            height: 100%;
+            margin: 0 -20px;
+        }
+       
+        /* 等间距布局 */
+        .container {
+            margin-top: 30px;
+            width: 340px;
+            background: orange;
+        }
+         /* 利用宽度增加的部分被隐藏了，实现布局 */
+        .list {
+            height: 100px;
+            margin-right: -20px;
+        }
+        .list .item {
+            width: 100px;
+            height: 100%;
+            margin-right: 20px;
+            float: left;
+            background: green;
+        }
+        /* 等高布局 */
+        .height-container {
+            margin-top: 30px;
+            width: 300px;
+            overflow: hidden;
+        }
+        .height-container .left {
+            float: left;
+            width: 50%;
+            padding-bottom: 1000px;
+            margin-bottom: -1000px;
+            background: red;
+        }
+        .height-container .right {
+            float: left;
+            width: 50%;
+            padding-bottom: 1000px;
+            margin-bottom: -1000px;
+            background: orange;
+        }
+    </style>
+
+    <!-- margin 合并 -->
+    <style>
+        .marge {
+             margin-top: 30px;
+        }
+        .poem {
+            height: 200px;
+            background: orange;
+            /* 使盒子成为 块状格式化上下文，从而消除 margin 合并 */
+            overflow: hidden;
+        }
+        .poem h2 {
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- margin: atuo -->
+    <style>
+        /* 右对齐 */
+        .auto .right {
+            margin-left: auto;
+            width: 100px;
+            height: 100px;
+            background: orange;
+        }
+        /* 水平垂直居中 */
+        .auto-center {
+            width: 300px;
+            height: 150px;
+            position: relative;
+            border: 1px solid gray;
+        }
+        .auto-center .center {
+            position: absolute;
+            background: orange;
+            /* 设置上下左右距离为0，限制整个尺寸自然充满 */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 200px;
+            height: 100px;
+            margin: auto;
+        }
+    </style>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <!-- 等间距布局 -->
+    <div class="container">
+        <div class="list">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+
+    <!-- 等高布局 -->
+    <div class="height-container">
+        <div class="left">
+            <p>123</p>
+            <p>456</p>
+            <p>789</p>
+        </div>
+        <div class="right">
+            <p>123</p>
+        </div>
+    </div>
+
+    <!-- margin 合并 -->
+    <div class="megre">
+        <h2>margin 合并</h2>
+        <div class="poem">
+            <h2>
+                陋室空床，当年笏满床
+            </h2>
+        </div>
+    </div>
+
+    <!-- margin: auto -->
+    <div class="auto">
+        <div class="right"></div>
+    </div>
+    <!-- 水平垂直居中 -->
+    <div class="auto-center">
+        <div class="center"></div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> padding 的用法</title>
+
+    <!-- inline padding -->
+    <style>
+        .padding-container {
+            margin-top: 100px;
+        }
+
+        .inline-padding {
+            padding: 20px 0;
+            margin-bottom: 50px;
+        }
+
+        /* 内联元素的 padding 会占据空间，但不会破坏布局 */
+        .inline-padding span {
+            padding: 50px;
+            background: red;
+        }
+
+        /* 利用 padding 实现任意高度分割线 */
+        .inline-p-line .line::after {
+            content: '';
+            padding: 10px 0px 1px;
+            border: 1px solid;
+            font-size: 0;
+            margin-left: 8px;
+        }
+    </style>
+
+    <!-- block percent padding -->
+    <style>
+        /* 宽度是高度的 5 倍 */
+        .percent-padding {
+            padding: 10% 50%;
+            background: ghostwhite;
+        }
+
+        .icon-menu {
+            display: inline-block;
+            width: 140px;
+            height: 10px;
+            padding: 35px 0;
+            border-top: 10px solid;
+            border-bottom: 10px solid;
+            background-color: currentColor;
+            /* 背景值在 content 区域显示 */
+            background-clip: content-box;
+        }
+
+        .icon-dot {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid;
+            border-radius: 50%;
+            background-color: currentColor;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="padding-container">
+        <!-- inline padding -->
+        <div class="inline-padding">
+            <span>span</span>
+        </div>
+
+        <div class="inline-p-line">
+            <span class="line">登录</span> <span>注册</span>
+        </div>
+
+        <!-- block percent padding -->
+        <div class="percent-padding">
+        </div>
+        
+        <!--   利用 padding 分隔 content 和 border 回执图形 -->
+        <i class="icon-menu"></i>
+        <i class="icon-dot"></i>
+
+
+    </div>
+</body>
+
+</html>

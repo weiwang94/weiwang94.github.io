@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可替换元素</title>
+
+    <!-- src 属性的可替换元素 -->
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .img-block {
+            display: block;
+            outline: 1px solid;
+        }
+    </style>
+
+    <!-- content 属性的可替换元素 -->
+    <style>
+        .title {
+            width: 100px;
+            height: 100px;
+            content: url(/assets/img/flower.jpg);
+        }
+
+        .img-title {
+            width: 100px;
+            height: 100px;
+        }
+
+        .img-title:hover {
+            content: url(/assets/img/flower1.jpg);
+        }
+
+        /* 计数器 */
+        .div-counter {
+            /* 在父元素中设置 计数器名字 和初始值，这里默认是 0 */
+            counter-reset: wang;
+        }
+        .div-counter p::before {
+            /* 在子元素中 使用计数器充当 content */
+            content: ' ' counter(wang) ' ';
+            counter-increment: wang;
+            font-size: 32px;
+            font-family: Arial black;
+            color: #cd0000;
+        }
+
+        /* 引号 */
+        .p-quote {
+            quotes: '"' '"';
+        }
+        .p-quote::before {
+            content: open-quote;
+        }
+        .p-quote::after {
+            content: close-quote;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="src-container">
+        <h1>src 属性的替换元素</h1>
+        <img src="">
+
+        <img>
+
+        <img class="img-block">
+
+        <img src="/assets/img/flower.jpg" alt="花">
+    </div>
+
+    <div class="content-container">
+        <h1>content 属性的替换元素</h1>
+        <p>下面其实是一个 h1 标签，但是通过修改 content 变成了匿名替换元素</p>
+        <h1 class="title">云想衣裳，花想容</h1>
+
+        <img class="img-title" src="/assets/img/flower.jpg" alt="">
+
+        <div class="div-counter">counter
+            <p>又</p>
+            <p>双</p>
+            <p>叒</p>
+            <p>叕</p>
+        </div>
+
+        <p class="p-quote">众生皆苦</p>
+    </div>
+</body>
+
+</html>
