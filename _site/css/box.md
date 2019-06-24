@@ -20,7 +20,7 @@
 
 css 宽高 > HTML 中设置的宽高 > 元素本身宽高
 
-指定元素宽高时，即前两种情况，元素依据 (object-fill)[https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit] 属性的设置展示。
+指定元素宽高时，即前两种情况，元素依据 [object-fill](https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit) 属性的设置展示。
 
 ### 替换元素的属性
 

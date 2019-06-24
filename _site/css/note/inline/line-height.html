@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>line-height</title>
+
+    <style>
+        .container {
+            margin: 30px 0;
+        }
+    </style>
+
+    <!-- 近似居中 -->
+    <style>
+        .i-arrow {
+            display: inline-block;
+            width: 20px;
+            height: 1ex;
+            background: url('/assets/icon/arrow.svg') no-repeat center/20px 20px;
+        }
+
+        .poem-1 {
+            background: #f5f5d5;
+            /* line-height 只要设置的比字体大，因为行间距等分，就会实现单行文字垂直居中 */
+            line-height: 60px;
+        }
+
+        .poem-2 {
+            background: #f5f5d5;
+            /* 设置总的行高，让幽灵空白节点继承，从而实现居中  */
+            line-height: 120px;
+        }
+        .line-h {
+            /* inline-block 在于形成行框，进而形成幽灵空白节点 */
+            display: inline-block;
+            line-height: 20px;
+            /* 修改文字对齐方式为 居中 */
+            vertical-align: middle;
+            margin: 0 20px;
+        }
+
+    </style>
+
+    <!-- line-height 的取值 -->
+    <style>
+        .value-1 {
+            line-height: 1.5;
+            font-size: 12px;
+        }
+         .value-2 {
+            line-height: 150%;
+            font-size: 12px;
+        }
+         .value-3 {
+            line-height: 1.5em;
+            font-size: 12px;
+        }
+        .value  {
+            margin-bottom: 30px
+        }
+        .value h2, .value p {
+            margin: 0;
+        }
+        .value h2 {
+            /* 行间距继承 value */
+            font-size: 32px;
+        }
+        .value p {
+             /* 行间距继承 value */
+            font-size: 20px;
+        }
+    </style>
+
+    <!-- 父子 line-height -->
+    <style>
+        .father {
+            background: #f5f5d5;
+            margin-bottom: 30px;
+        }
+        /* .son {
+            display: inline-block;
+        } */
+        .father-1 {
+            line-height: 96px;
+        }
+        .son-1 {
+            line-height: 20px;
+        }
+        .father-2 {
+            line-height: 20px;
+        }
+        .son-2 {
+            line-height: 96px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        sahalax
+        <i class="i-arrow"></i>
+    </div>
+
+    <div class="poem-1 container">
+        陋室空床，当年笏满床。
+    </div>
+
+    <div class="poem-2 container">
+        <div class="line-h">
+            陋室空床，当年笏满床。
+            衰草枯扬曾为歌舞场。
+            金满箱，银满箱，都是为他人作嫁衣裳。
+            因嫌纱帽小，致使锁枷扛。
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="value value-1">
+            <h2>标题</h2>
+            <p>内容</p>
+        </div>
+
+        <div class="value value-2">
+            <h2>标题</h2>
+            <p>内容</p>
+        </div>
+
+        <div class="value value-3">
+            <h2>标题</h2>
+            <p>内容</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="father father-1">
+            <span class="son son-1">行高 20px</span>
+        </div>
+
+        <div class="father father-2">
+            <span class="son son-2">行高 96px</span>
+        </div>
+    </div>
+
+    
+</body>
+</html>
