@@ -19,17 +19,17 @@
     </script>
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>爬虫 | 撒哈拉</title>
+<title>层叠规则 | 撒哈拉</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="爬虫" />
+<meta property="og:title" content="层叠规则" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="云想衣裳，花想容" />
 <meta property="og:description" content="云想衣裳，花想容" />
-<link rel="canonical" href="http://localhost:4000/python/reptile.html" />
-<meta property="og:url" content="http://localhost:4000/python/reptile.html" />
+<link rel="canonical" href="http://localhost:4000/css/cascading.html" />
+<meta property="og:url" content="http://localhost:4000/css/cascading.html" />
 <meta property="og:site_name" content="撒哈拉" />
 <script type="application/ld+json">
-{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/python/reptile.html","headline":"爬虫","@context":"http://schema.org"}</script>
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/cascading.html","headline":"层叠规则","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -59,61 +59,77 @@
 
 
       <section id="main_content">
-        <h1 id="爬虫">爬虫</h1>
+        <h1 id="层叠规则">层叠规则</h1>
 
-<h2 id="核心">核心</h2>
+<p>层叠顺序指的是元素发生重叠时那个在上，那个在下</p>
 
-<p>1、导入库</p>
+<p>z-index 必须和 position 不为 static 的值连用。CSS3 中新增了 flex盒子 的孩子元素。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import requests
-from pyquery import PyQuery as pq
+<p>层叠上下文，如果一个元素具备形成了层叠上下文的条件，则它与子元素的层叠规则就区别于其他元素。</p>
+
+<p>当我们在谈层叠顺序时，我们往往不能避开层叠上下文。</p>
+
+<h2 id="层叠顺序">层叠顺序</h2>
+
+<p>从上往下依次递增</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>层叠上下文 background/border
+
+负 index
+
+block 块状水平盒子
+
+float 浮动盒子
+
+inline 内联水平盒子 （包括 inline， inline-block， inline-table 元素）
+
+z-index: auto 或视作 z-index: 0；不依赖 z-indx 的层叠上下文
+
+正 z-index
 </code></pre></div></div>
 
-<p>2、requests 发请求，获得页面</p>
+<h2 id="层叠准则">层叠准则</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r = requests.get(url)
-page = r.content
+<p>z-index 起作用时， 大的在上面</p>
+
+<p>层叠水平一致时，后面的在上面</p>
+
+<h2 id="层叠上下文">层叠上下文</h2>
+
+<p>特性：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>层叠上下文的层叠水平 大于 普通元素
+
+层叠上下文嵌套时，层叠水平的基础是最外层的层叠上下文
+
+层叠上下文只考虑子元素
 </code></pre></div></div>
 
-<p>3、pyquery 解析页面，得到想要的数据</p>
+<p>生成条件：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 解析的方法类似于 jquery
-e = pq(page)
-items = e('.item')
-...
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>html 元素
+
+z-index 为数值的定位元素（positiotn 不为 static）
+
+一些 css3 属性
 </code></pre></div></div>
 
-<p>如果页面是下面的类型，要使用 items = e(‘.item’, parser=”html”) 解析。
-<a href="https://pythonhosted.org/pyquery/index.html">pyquery 文档</a></p>
+<p>CSS3 一些主要的形成层叠上下文的属性</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/1999/xhtml"</span><span class="nt">&gt;</span>' 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex 布局元素， z-index != auto
+
+opacity != 1
+
+tranform != none
+
+filter != none
 </code></pre></div></div>
 
-<h2 id="模拟浏览器">模拟浏览器</h2>
+<p><strong>技巧</strong></p>
 
-<p>有时候页面是前端渲染的，要执行 JS 才能得到完整的页面。因此我们需要一个浏览器运行js，渲染页面。这时就需要导入一些库帮我们做这些事情。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>z-index 等于 负值 可以隐藏元素 
 
-<p>导入库</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from selenium import webdriver
-</code></pre></div></div>
-
-<p>使用无头(headless)chrome 模拟浏览器</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import time
-
-# /Users/ww/Downloads/software 路径提前已经在环境变量里配了
-driver = webdriver.Chrome('/Users/ww/Downloads/software/chromedriver')
-driver.get(url)
-time.sleep(1)
-content = driver.page_source
-</code></pre></div></div>
-
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">chromedriver 文档</a></p>
-
-<p>爬取 iFrame 标签页面，使用 switch_to.frame</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> driver.switch_to.frame('contentFrame')
+普通场景（除了悬浮在所有元素上面的场景）不要让 z-indx 超过 2
 </code></pre></div></div>
 
 

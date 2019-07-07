@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Float</title>
+
+    <style>
+        body {
+            background: #f5f5d5;
+            margin: 30px;
+        }
+        .item {
+            width: 300px;
+            border: 1px solid gray;
+            margin-bottom: 30px;
+        }
+        /* 浮动环绕 */
+        .float img {
+            float: left;
+        }
+
+        /* 浮动 布局 */
+        .float-layout img {
+            width: 48px;
+            height: 48px;
+            float: left;
+        }
+        .float-layout p {
+            margin-left: 58px;
+        }
+    </style>
+
+    <!-- clear 清除浮动  -->
+    <!-- 仅对块级元素有用 -->
+    <style>
+        .float-clear img {
+            float: left;
+        }
+        .float-clear p {
+            clear: both;
+        }
+    </style>
+    
+    <!-- BFC -->
+    <style>
+        .float-overflow img {
+            float: left;
+            /* margin-right padding-right 或 border-right  */
+        }
+         .float-overflow p {
+            /* 使用 padding-left 或 border-left */
+            padding-left: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 图片浮动， 文字环绕图片 -->
+        <div class="item float">
+            <img src="/assets/img/cat.png" alt="">
+            <p> 大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。</p>
+        </div>
+        
+        <!-- 一边浮动定宽，一边宽度自适应  -->
+        <div class="item float-layout">
+            <img src="/assets/img/cat.png" alt="">
+            <p> 大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。</p>
+        </div>
+
+        <div class="item float-clear">
+            <img src="/assets/img/cat.png" alt="">
+            <p> 大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。</p>
+        </div>
+
+        <!-- overflow 轻松实现布局 -->
+        <div class="item float-overflow">
+            <img src="/assets/img/cat.png" alt="">
+            <p> 大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。大漠孤烟直，长河落日圆。</p>
+        </div>
+
+    </div>
+</body>
+</html>

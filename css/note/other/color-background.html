@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color And Background </title> 
+
+    <style>
+        body {
+            background: #f5f5d5;
+            margin: 30px;
+        }
+    
+        .item {
+            width: 300px;
+            border: 1px solid gray;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+    </style>
+
+    <!-- 颜色 -->
+    <style>
+        .item .color-word {
+            vertical-align: 8px;
+            margin-right: 15px;
+        }
+
+        .left, .right {
+            display: inline-block;
+        }   
+
+        .left {
+            margin-right: 15px;
+        }
+
+        .hsl {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            /* 大红色 */
+            background-color: hsl(0, 100%, 50%)
+        }
+
+        .rgba {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            /* 透明红色 */
+            background-color: rgba(255, 0, 0, 0.5)
+        }
+    </style>
+
+    <!-- 背景 -->
+    <style>
+
+        .b-img {
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+            background-image: url(/assets/img/cat.png);
+            background-repeat: no-repeat; 
+            background-position: center;
+            background-attachment: scroll;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="item">
+            <div class="left">
+                <span class="color-word"> hsl 色 </span>
+                <div class="hsl"></div>
+            </div>
+           
+            <div class="right">
+                <span class="color-word"> rgba 色 </span>
+                <div class="rgba"></div>
+            </div>
+        </div>
+
+        <div class="item background">
+            <div class="b-img">
+                <p>
+                最后，如果真的到了下决心的那一天，你可能还需要一点勇气。B 计划并不容易，但是提心吊胆地维持一份毫无乐趣、前景灰暗的工作，也是不容易的。这就是为什么，B 计划要选择那些能鼓舞自己、唤起热情的工作的一个原因，这样比较容易产生勇气。
+                </p>
+                <p>
+                    正常情况下，B 计划可能不会立即带来经济上的成功，但是你可以从中获得自由、自我认同和成就感，以及从此不用忍受大公司晋升阶梯上面挤破头的压力和窒息。即使初期没有成功，你也可以借此获得转型的其他机会。最理想的情况是，你通过 B
+                    计划，实现了自己真正想要的生活。美国的”家政女王“玛莎·斯图尔特，正是因为在食品店当经理被解雇了，才不得不自己开店的。
+                </p>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

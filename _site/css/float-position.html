@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ef7c9870c48fc42b9c10f67e5c08ebbf95f18620" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>流的破坏与保护 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="流的破坏与保护" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/css/float-position.html" />
+<meta property="og:url" content="http://localhost:4000/css/float-position.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/float-position.html","headline":"流的破坏与保护","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="流的破坏与保护">流的破坏与保护</h1>
+
+<p>css 正常文档流很难适应复杂布局的需要，于是就需要破坏流来实现想要的布局；破坏总是不好的，需要尽可能的把破坏的影响限制在特定范围内，此时就需要保护流。</p>
+
+<h2 id="float">float</h2>
+
+<p>float 的设计本意是想实现文字环绕图片的效果；然而却经常被用作一块一块的转头式布局。</p>
+
+<p>float 的作用机制是文字环绕图片显示，文字实际指的是行框盒子的文字，每一行内联元素都有一个行框盒子。</p>
+
+<p><em>浮动会带来两个问题，一是浮动会是父级容器塌陷，二是文字环绕</em></p>
+
+<p>clear 清除浮动只能在一定程度上解决文字环绕效果，但解决不了高度塌陷问题。</p>
+
+<p>来看看更好的解决方案 BFC</p>
+
+<h2 id="bfc">BFC</h2>
+
+<p>BFC(Block Formatting Context) 块级格式化上下文，形成一个封闭环境，不受外界影响，也不影响外界。</p>
+
+<h3 id="形成条件">形成条件:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>html 根元素；
+
+float 值不为 None；
+
+overflow 值为 auto，scroll 或 hidden；
+
+display 值为 table-cell，table-caption 或 iniline-block;
+
+postion 不为 relative 和 static
+</code></pre></div></div>
+
+<p>BFC 主要目的是利用流体特性，实现自适应布局, 所以最合适的是 overflow: hidden;</p>
+
+<h2 id="overflow">overflow</h2>
+
+<p>overflow 设置内容超出容器如何显示。有四个值</p>
+
+<p>visible： 超出部分不被裁剪，显示在元素框之外</p>
+
+<p>auto：没超出不裁剪，超出产生滚动条</p>
+
+<p>scroll: 显示滚动条</p>
+
+<p>hidden： 超出隐藏内容</p>
+
+<h3 id="overflow-x-和-over-flow-y">overflow-x 和 over-flow-y</h3>
+
+<p>有个特性 overflow-x 和 overflow-y，中有一个是三个值（auto， scroll， hidden）中的一个，那么另外一个不能是 visible</p>
+
+<h3 id="锚点定位">锚点定位</h3>
+
+<p>两种方式，其一 通过 id 定位</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="#poem"&gt;有诗云&lt;/a&gt;
+       
+&lt;div id="poem"&gt;
+    &lt;p&gt; 满纸荒唐言，一把辛酸泪。&lt;/p&gt;
+    &lt;p&gt; 都云作者痴，谁解其中味。&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>其二 通过 name 定位，但必须是 a 标签</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="#red"&gt; 这里&lt;/a&gt;
+&lt;a name="red"&gt;悼红轩&lt;/a&gt;
+</code></pre></div></div>
+
+<p>值得注意的是 overflow: hidden; 也可以这样定位。</p>
+
+<h2 id="absolute">absolute</h2>
+
+<p>元素一旦设置 position: absolute, 则 display 自动更新为 block</p>
+
+<h3 id="absolute-的包含块">absolute 的包含块</h3>
+
+<p>absolute 是相对于最近非 static 的父级元素定位，这个父级元素称为包含块。</p>
+
+<p>absolute 元素的表现为宽度自适应（内容占多大宽度就是多少宽度）， 但最大宽度不会超过包含块的宽度。设置 white-space: no-wrap; 可以让文字突破限制。</p>
+
+<p>包含块的边界是 padding box；</p>
+
+<h3 id="无依赖决定定位不设置-left-right-top-bottom">无依赖决定定位（不设置 left right top bottom）</h3>
+
+<p>当只设置 position: absolute 时，其位置不在相对其他元素定位，位置是默认的，但可通过 margin 调整；且仍旧脱离文档流</p>
+
+<p><em>absolute 和 overflow 连用，滚动时 absolute 元素静止不动</em></p>
+
+<h3 id="absolute-和-clip">absolute 和 clip</h3>
+
+<p>clip 必须和 absolute 和 fixed 连用才能起作用。</p>
+
+<p>隐藏元素</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> position: absolute;
+ clip: rect(0, 0, 0, 0)
+</code></pre></div></div>
+
+<h3 id="absolute-的流体特性">absolute 的流体特性</h3>
+
+<p>同时设置 left 和right 就表现为水平方向流体特性，竖直方向也一样</p>
+
+<p>流体特性的特点就是<strong>自动充满可用空间</strong>。</p>
+
+<h2 id="relative">relative</h2>
+
+<p>relative 得值 left right top bottom 的规则很好理解，就是相对自身定位；在四者同时存在时 top &gt; bottom, left &gt; right</p>
+
+<p>尽量不要使用 relative， 确要使用影响也应限制在最小范围内。</p>
+
+<h2 id="fixed">fixed</h2>
+
+<p>fixd 相对 html 元素定位，层级最高，永远在最上面。</p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>

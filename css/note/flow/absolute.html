@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Absolute</title>
+
+    <style>
+         body {
+            background: #f5f5d5;
+            margin: 30px;
+        }
+        .item {
+            width: 300px;
+            border: 1px solid gray;
+            margin-bottom: 100px;
+        }
+    </style>
+
+    <style>
+        .item-r {
+            position: relative;
+        }
+        /* 宽度被限制在包含块内 */
+        .a1 {
+            position: absolute;
+        }
+        /* 宽度突破包含块限制 */
+        .a2 {
+            white-space: nowrap;
+            position: absolute;
+        }
+
+        /* 相对包含块的 padding-box 定位 */
+        .a-p {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 48px;
+        }
+
+        /* 只设置 absolute 的定位 */
+        .item-a {
+            line-height: 0;
+        }
+        .item-a .img-b {
+            width: 300px;
+        }
+        .item-a .img-p {
+            width: 60px;
+            position: absolute;
+        }
+
+        /* overflow 和 absolute */
+        .item-overflow {
+            height: 200px;
+            overflow: auto;
+        }
+         .item-overflow .img-p {
+            width: 48px;
+            margin-left: 252px;
+            position: absolute;
+         }
+         .item-overflow .img-b {
+             width: 300px;
+         }
+
+         /* 隐藏元素 */
+         .clip {
+             position: absolute;
+             clip: rect(0, 0, 0, 0)
+         }
+
+         /* 流体特性 */
+         .item-flow {
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: gray;
+         }  
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="item item-r">
+            <div class="a1"> 
+                绝对定位，绝对定位绝对定位，绝对定位绝对定位，绝对定位绝对定位，
+             </div> 
+        </div>
+
+        <div class="item item-r">
+            <div class="a2">
+                绝对定位，绝对定位绝对定位，绝对定位绝对定位，绝对定位绝对定位，
+            </div>
+        </div>
+
+        <div class="item item-r item-p">
+            <img class="a-p" src="/assets/icon/draw.svg" alt="">
+            <p> 满纸荒唐言，一把辛酸泪。</p>
+            <p> 都云作者痴，谁解其中味。</p>   
+        </div>
+
+        <div class="item item-a">
+            <img class="img-p" src="/assets/icon/draw.svg" alt="">
+            <img class="img-b" src="/assets/img/flower.jpg" alt="">
+        </div>
+
+        <div class="item item-overflow">
+            <img class="img-p" src="/assets/icon/draw.svg" alt="">
+            <p> 满纸荒唐言，一把辛酸泪。</p>
+            <p> 都云作者痴，谁解其中味。</p>
+            <img class="img-b" src="/assets/img/flower.jpg" alt="">
+        </div>
+
+        <div class="item">
+            <div class="clip">   
+                <p> 满纸荒唐言，一把辛酸泪。</p>
+                <p> 都云作者痴，谁解其中味。</p>
+            </div>
+        </div>
+
+        <div class="item item-r">
+            <div class="item-flow">
+                满纸荒唐言，一把辛酸泪。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

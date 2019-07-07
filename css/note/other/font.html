@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Font</title>
+
+    <style>
+        body {
+            font-size: 16px;
+        }
+        /* caption icon message-box 字体在 chrome 浏览器 中无效 */
+        .caption {
+            font: caption;
+        }
+        .icon {
+            font: icon;
+        }
+         .message-box {
+            font: message-box;
+        }
+
+        .menu {
+            font: menu;
+        }
+        .small-caption {
+            font: small-caption;
+        }
+         .status-bar {
+            font: status-bar;
+        }
+    </style>
+
+    <!--  文本控制 -->
+    <style>
+        .indent {
+            text-indent: 10px;
+        }
+        .spacing {
+            letter-spacing: 3ch;
+        }
+        .word-spacing {
+            word-spacing: 3ch;
+        }
+        .justify {
+            width: 200px;
+            text-align: justify;
+        }
+
+        .under-line {
+            text-decoration: underline;
+        }
+        .delete-line {
+            text-decoration: line-through;
+        }
+        .under-line-mock {
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+        }
+
+        .first-letter::first-letter {
+            color: red;
+        }
+        .first-letter span {
+            color: blue !important;
+        }
+
+        .first-line::first-line {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2> font </h2>
+    <p class="caption"> 系统关键字： caption </p>
+    <p class="icon"> 系统关键字： icon </p>
+    <p class="menu"> 系统关键字： menu </p>
+    <p class="message-box"> 系统关键字： message-box </p>
+    <p class="small-caption"> 系统关键字： small-caption </p>
+    <p class="status-bar"> 系统关键字： status-bar </p>
+
+    <p class="indent">
+        正常情况下，B 计划可能不会立即带来经济上的成功，但是你可以从中获得自由、自我认同和成就感，以及从此不用忍受大公司晋升阶梯上面挤破头的压力和窒息。即使初期没有成功，你也可以借此获得转型的其他机会。最理想的情况是，你通过 B
+        计划，实现了自己真正想要的生活。美国的”家政女王“玛莎·斯图尔特，正是因为在食品店当经理被解雇了，才不得不自己开店的。
+    </p>
+
+    <p class="spacing">
+        我和你
+    </p>
+
+    <p class="word-spacing">
+        我 空格 你
+    </p>
+
+    <p class="justify">
+        说什么金玉良缘，我只认木石前盟，纵然是举案齐眉，到底意难平。
+    </p>
+
+    <p class="decoration">
+        <span class="under-line"> 下划线 </span> <br><br>
+
+        我是<span class="under-line-mock"> 下划线 </span> 啊  <br><br>
+
+         <span class="delete-line"> 删除线 </span>
+    </p>
+
+    <p class="first-letter">
+        <span> 脂</span> 正浓，粉正香，保不定日后做强梁
+    </p>
+
+    <p class="first-line">
+        脂正浓，粉正香，保不定日后做强梁 <br>
+        因嫌纱帽小，致使锁夹扛
+    </p>
+</body>
+</html>

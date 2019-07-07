@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ef7c9870c48fc42b9c10f67e5c08ebbf95f18620" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>文字效果 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="文字效果" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/css/font.html" />
+<meta property="og:url" content="http://localhost:4000/css/font.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/font.html","headline":"文字效果","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="文字效果">文字效果</h1>
+
+<h2 id="font-size">font-size</h2>
+
+<p>em 相对当前字体大小的相对长度单位</p>
+
+<p>rem 相对 &lt;html&gt; 元素字体大小的相对长度单位</p>
+
+<p>桌面 chrome 浏览器默认 16px， 最小 12px;</p>
+
+<p>font-size: 0; 可以隐藏文字</p>
+
+<p><strong>line-height 不带单位是相对于 font-size 计算的</strong></p>
+
+<p><strong>vetical-align 百分比数值是相对于 line-height 计算的</strong></p>
+
+<h2 id="font-family">font-family</h2>
+
+<p>font-family 是文字使用的字体，可以使用字体名，和字体族两种值</p>
+
+<h3 id="字体名">字体名</h3>
+
+<p>比如</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>font-family: simsun // 宋体
+
+font-family: 'Microsoft Yahei' // 微软雅黑
+
+font-family: simsun, 'Microsoft Yahei' // 先查找宋体，有则使用，没有则找微软雅黑，再没有则使用默认字体
+</code></pre></div></div>
+
+<h3 id="字体族">字体族</h3>
+
+<p>主要字体</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>serify: 衬线字体
+
+sans-serify 无衬线字体
+
+monospace 等宽字体
+</code></pre></div></div>
+
+<p>衬线字体： 文字笔画开始和结尾额外装饰，且笔画粗细不一致</p>
+
+<p>无衬线字体： 文字笔画开始和结尾无额外装饰，且笔画粗细几乎一致</p>
+
+<p>字体也可以和字体族写一块，只是字体族要放在最后，因为字体族后面的字体会被浏览器忽略</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>font-family: 'Microsoft Yahei', sans-serify;
+</code></pre></div></div>
+
+<p>等宽字体： 宽度相等的字体，一般针对英文字体，比如代码一般设置等宽字体，看起来比较舒服。</p>
+
+<p>CSS3 相对单位， 1 ch 等于阿拉伯数字 0 等宽度</p>
+
+<h2 id="其他">其他</h2>
+
+<h3 id="font-weight">font-weight</h3>
+
+<p>字体的粗细，关键字有 narmal， bolder；数值有 100， 200， 300， 400， 500， 600， 700， 800， 900，依次字体越来越粗。</p>
+
+<p>font-weight 的数值也是基于字体的，如果没有相应粗细的字体，也是不起作用的。</p>
+
+<h3 id="font-style">font-style</h3>
+
+<p>表示字体是斜还是正；</p>
+
+<p>有三种值，normal, italic, oblique。其中 italic 是使用字体的斜体版本，如果字体没有斜体版本，则单纯倾斜字体。 oblique 单纯倾斜字体</p>
+
+<h2 id="font">font</h2>
+
+<p>缩写形式没有什么价值暂且不记</p>
+
+<p>使用系统字体</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>font: menu;
+
+font: small-caption;
+
+font: status-bar;
+</code></pre></div></div>
+
+<h2 id="font-face">@font face</h2>
+
+<p>@font face 定义字体的集合。</p>
+
+<p>有用的几种属性</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@font-face{　
+    font-family: 'example';　
+    src: url(example.ttf);　
+    font-style: normal;　
+    font-weight: normal;　
+    unicode-range: U+0025-00FF;
+}
+</code></pre></div></div>
+
+<p>font-family 字体名称；</p>
+
+<h3 id="src">src</h3>
+
+<p>src 可以用 local 引用本地字体，也可以用 url() 引用外部字体。</p>
+
+<p>以下是常规的使用阿里字体的方法</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('//at.alicdn.com/t/webfont_5q7njuqdgfg.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_5q7njuqdgfg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.svg#AlibabaPuHuiTiH') format('svg'); /* iOS 4.1- */
+}
+</code></pre></div></div>
+
+<p>上面共使用了.eot，.woff2，.woff，.ttf，.svg等 5 中字体格式，它们的特点如下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> .eot IE 专用
+
+ .woff 转为 web 设计字体，体积小，Android 4.4 开始全面支持。
+
+ .woff2 web 设计字体，体积更小
+
+ .ttf 兼容老安卓 
+
+ .svg 为了兼容 IOS 4.1 及之前版本
+</code></pre></div></div>
+
+<p>故可优化代码为</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('//at.alicdn.com/t/webfont_5q7njuqdgfg.eot'); /* IE9*/
+    src: local('😁')
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/webfont_5q7njuqdgfg.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+}
+</code></pre></div></div>
+
+<h2 id="文本控制">文本控制</h2>
+
+<p>text-indent 文字开始的空格。</p>
+
+<p>letter-spacing 文字之间的距离。</p>
+
+<p>word-spacing 空格的宽度</p>
+
+<p>word-break 文本断行</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>normal: 默认断行规则
+
+break-all: 在任意字符间断行
+
+keep-all: 中日韩文本不断行，非中日韩文本 normal
+
+break-word: 文本溢出断行
+</code></pre></div></div>
+
+<p>word-wrap 文本断行</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>normal： 默认断行规则
+
+break-word: 文本溢出断行
+</code></pre></div></div>
+
+<h3 id="white-space">white-space</h3>
+
+<p>设置元素中出现的空白</p>
+
+<p>几种值</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>normal 连续的空白符会被合并，换行符无效，会自动换行
+
+nowrap 连续的空白符会被合并，换行符无效， 不会自动换行
+
+pre 连续的空白符会保留, 换行符也换行， 不会自动换行
+
+pre-wrap 连续的空白符会保留, 换行符也换行， 会自动换行
+
+pre-line 连续的空白符会合并, 换行符也换行， 会自动换行
+</code></pre></div></div>
+
+<h3 id="text-align">text-align</h3>
+
+<p>justify 文字向两侧对齐，对最后一行无效。 文字换行时使用。</p>
+
+<h3 id="text-decoration">text-decoration</h3>
+
+<p>用于设置文本下划线、顶划线、删除线或者闪烁</p>
+
+<h3 id="text-transform">text-transform</h3>
+
+<p>自动转换英文字母大小写， uppercase, lowercase</p>
+
+<h2 id="first-letter-和-first-line">::first-letter 和 ::first-line</h2>
+
+<p>::first-letter 一行的第一个字， 注意直接选中的是哪个字！</p>
+
+<p>:: first-line 多行的第一行</p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
