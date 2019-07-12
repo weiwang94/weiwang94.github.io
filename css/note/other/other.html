@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display Adn Hidden</title>
+
+    <style>
+        .outline {
+            width: 200px;
+            height: 300px;
+            background: skyblue;
+            outline: 10px solid red;
+        }
+
+        .direction {
+            direction: rtl;
+        }
+        .direction div {
+            display: inline-block;
+        }
+        .bidi {
+            unicode-bidi: normal;
+        }
+        .embed {
+            unicode-bidi: embed;
+        }
+        .bidi-override {
+            unicode-bidi: bidi-override;
+        }
+        
+    </style>
+
+    <!-- writing mode -->
+    <style>
+        .writing-m {
+            writing-mode: vertical-rl;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- display: none -->
+    <div>
+        <!-- 设置 style 显示 -->
+        <style style="display: block;">
+            .item {
+                margin-top: 30px;
+            }
+        
+            .container {
+                padding: 30px;
+            }
+        </style>
+        
+        <input type="hidden">
+        
+        <div hidden>
+            隐藏
+        </div>
+    </div>
+
+    <!-- visbility -->
+    <div>
+        <div style="visibility: hidden"> 
+            隐藏
+            <div style="visibility: visible">显示</div>
+        </div>
+    </div>
+
+    <!-- outline -->
+    <div class="item outline">
+        <input type="text">
+        <button style="background: blue;"></button>
+    </div>
+
+    <!-- direction -->
+    <div class="item direction">
+        <div> 左 </div>  <div> 右 </div>
+    </div>
+
+    <!-- bidi -->
+    <p class="item direction ">
+        <span class="bidi"> 古人写文字习惯很奇怪，他们习惯于于从右向左写！ </span>  <br>
+        <span class="embed"> 牛奶， 豆浆？ </span> <br>
+        <span class="bidi-override">  绑上一块大石头扔到爱琴海！</span> <br>
+        <span class="bidi-override">
+            <span class="embed"> 第三次数学危机? </span> <br>
+
+            <span class="bidi"> 牛顿炒股亏了 3 年工资？ </span>
+        </span>
+    </p>
+
+    <div class="item writing-m"> 
+        <div> 满纸荒唐言，</div>
+        <div> 一把辛酸泪。 </div>
+        <div> 都云作者痴，</div>
+        <div> 谁解其中味？ </div>
+    </div>
+
+</body>
+</html>

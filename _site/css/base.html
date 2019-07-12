@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=152520edb430f9319c31700980076e558c37e48d" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>基本概念 | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="基本概念" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/css/base.html" />
+<meta property="og:url" content="http://localhost:4000/css/base.html" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/css/base.html","headline":"基本概念","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        
+<h1 id="基本概念">基本概念</h1>
+
+<h2 id="历史">历史</h2>
+
+<p>1996年12月17日 CSS1 诞生</p>
+
+<p>1998年5月12日 CSS2 诞生， 专注内容和表现分离</p>
+
+<p>2007年 CSS2.1 诞生，专注图片和文字展示</p>
+
+<h2 id="基本概念-1">基本概念</h2>
+
+<h3 id="长度单位">长度单位</h3>
+
+<p>相对字体： em 和 CSS3 的 rem，ch</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>em  相对当前文本字体宽度， 比如文本字体 16px，则 1em 等于 16px
+rem 相对根元素字体宽度
+ch  字符0的宽度，也可以理解成英文字母的宽度
+</code></pre></div></div>
+
+<p>相对可视区域： vh vw</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vh 相对于可视高度
+vw 相对于可视宽度
+</code></pre></div></div>
+
+<h3 id="选择器">选择器</h3>
+
+<p>类选择器，ID选择器，属性选择器，伪类选择器，伪元素选择器</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>属性选择器 [title="hello"] {}
+伪类选择器 :first-child {}
+伪元素选择器 ::selection {}
+</code></pre></div></div>
+
+<p>关系选择器： 后代选择器（空格连接）， 相邻后代选择器（ &gt; 连接），兄弟选择器（~ 连接）， 相邻兄弟选择器（+ 连接， 只会选择一个标签）</p>
+
+<p><a href="/css/note/base/select.html">实例代码</a></p>
+
+<h3 id="未定义行为">未定义行为</h3>
+
+<p>CSS 规范中没有规定的，浏览器之间实现效果不同的行为</p>
+
+<h2 id="宽度和高度">宽度和高度</h2>
+
+<h3 id="宽度是如何确定的">宽度是如何确定的？</h3>
+
+<p>默认宽度的情况下常见的有块级和内联盒子，分别具有流动性和包裹性。</p>
+
+<h4 id="块级盒子的流动性">块级盒子的流动性</h4>
+
+<p>块级盒子，表现为独占一行，自动填充一行的宽度，具有流动性。</p>
+
+<p><strong>但它不是 width: 100%，而是 width（content)，padding, border,margin，自动计算加起来等于一行的宽度。</strong></p>
+
+<h4 id="内联盒子的包裹性">内联盒子的包裹性</h4>
+
+<p>内联盒子，表现为和其他内联盒子并列一行，具有包裹性，尺寸由内容决定，内容越多尺寸越宽，但不超过外层标签。</p>
+
+<p>比如下面的代码， span 标签的宽度由里面的内容决定，但最大宽度不超过外层 div 标签的宽度。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;
+    &lt;span&gt; 内容 &lt;/span&gt;
+&lt;div&gt;
+</code></pre></div></div>
+
+<h4 id="内联块盒子">内联块盒子</h4>
+
+<p>这里的内联块盒子是我的一种叫法，它的特点是 display: inline-block 默认表现为包裹性。</p>
+
+<p>仔细思考内联盒子包裹性的特点后，有没有发现要实现文字在特定宽度范围内至少需要两个标签，如果使用内联块盒子一个标签就可以搞定的。
+可以设置宽度后，轻松实现文字在特定宽度内。</p>
+
+<p>最后强调一下<strong>块级盒子一旦设置了宽度就破坏了流动性，内联块盒子一旦设置了宽度就破坏了包裹性</strong></p>
+
+<h4 id="内联块前面的空白节点">内联块前面的空白节点</h4>
+
+<p>块级盒子占据一行，子元素内联块前面的空白节点的高度撑高了块级盒子的高度，高度和内联盒子高度一致，然后就可以看到背景色</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="div-span"&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p><a href="/css/note/base/width.html">实例代码</a></p>
+
+<h3 id="高度是如何确定的">高度是如何确定的？</h3>
+
+<p>标签的百分比高度，是相对父元素高度确定的，但前提是父元素高度固定。但绝对定位 <strong>position: absolute;</strong> 是个例外，它的高度就是父元素的高度；</p>
+
+<p><a href="/css/note/base/height.html">实例代码</a></p>
+
+<h3 id="最大最小宽度和-最大最小高度-是如何影响宽度和高度的">最大/最小宽度/和 最大/最小高度 是如何影响宽度和高度的？</h3>
+
+<p>最大或最小宽度表示宽度在范围内，按照宽度实际值取值，否则按最大或最小取值。</p>
+
+<p>高度也适用上面的条件</p>
+
+<p><a href="/css/note/base/min-max.html">实例代码</a></p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
