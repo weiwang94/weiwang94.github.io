@@ -15,8 +15,6 @@ https://pages.github.com/
 其他一些好的风格[Architect](https://pages-themes.github.io/architect/) 建筑师、[Cayman](https://pages-themes.github.io/cayman/) 保时捷
 
 
-<!-- bundle exec jekyll serve -->
-
 [更多](https://pages.github.com/themes/)
 
 # 本地预览

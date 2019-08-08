@@ -53,10 +53,10 @@
 
         /* 引号 */
         .p-quote {
-            quotes: '"' '"';
+            quotes: '「' '」';
         }
         .p-quote::before {
-            content: open-quote;
+            content: attr(id) ': ' open-quote;
         }
         .p-quote::after {
             content: close-quote;
@@ -67,7 +67,7 @@
 <body>
 
     <div class="src-container">
-        <h1>src 属性的替换元素</h1>
+        <h1>src 属性的替换元素</h1> 
         <img src="">
 
         <img>
@@ -91,7 +91,7 @@
             <p>叕</p>
         </div>
 
-        <p class="p-quote">众生皆苦</p>
+        <p class="p-quote" id="俗语">众生皆苦</p>
     </div>
 </body>
 

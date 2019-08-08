@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=640">
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=152520edb430f9319c31700980076e558c37e48d" media="screen">
+    <link rel="stylesheet" href="/assets/css/style.css?v=acc7d8decbcf7c2ae0f83df8567f135bd03bd377" media="screen">
     <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
     <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
 
@@ -59,8 +59,7 @@
 
 
       <section id="main_content">
-        
-<h1 id="基本概念">基本概念</h1>
+        <h1 id="基本概念">基本概念</h1>
 
 <h2 id="历史">历史</h2>
 
@@ -92,8 +91,8 @@ vw 相对于可视宽度
 <p>类选择器，ID选择器，属性选择器，伪类选择器，伪元素选择器</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>属性选择器 [title="hello"] {}
-伪类选择器 :first-child {}
-伪元素选择器 ::selection {}
+伪类选择器 表示某种状态的元素，比如 :focus {} 选择具有键盘输入焦点的元素
+伪元素选择器 表示某种逻辑的元素，比如 ::selection {} 选择鼠标选中的元素
 </code></pre></div></div>
 
 <p>关系选择器： 后代选择器（空格连接）， 相邻后代选择器（ &gt; 连接），兄弟选择器（~ 连接）， 相邻兄弟选择器（+ 连接， 只会选择一个标签）</p>
@@ -160,6 +159,14 @@ vw 相对于可视宽度
 <p>高度也适用上面的条件</p>
 
 <p><a href="/css/note/base/min-max.html">实例代码</a></p>
+
+<p>总结： 这部分我们主要学习了两个知识点，
+第一个是 css 基本的概念，主要是选择器，像六大基本选择器，和 四种关系选择器；</p>
+
+<p>第二个是<strong>宽度和高度</strong>，宽度常见三种性质，流动性，包裹性，兼具流动性和包裹性，分别对应块状盒子，内联盒子，内联块盒子。幽灵空白节点，块级盒子的子元素前面的看不见空白。</p>
+
+<p>高度默认是内容元素占据高度，没有内容高度就是 0，值的注意的是高度 100%，是针对父元素的相对值，所以需要设置 html 和 body 都是 height: 100%; 才能使 body 的高度等于浏览器的视口高度。现在有了视口高度单位 vh，我们可以轻松设置视口高度了。最后说一下 最小最大宽度或高度，同时设置最小最大宽度等于限制了宽度范围，高度同理。这样设置是一个不错的响应式手段。比如博客一般设置文章的最大宽度，这样宽度不至于很宽，看起来很舒服。</p>
+
 
       </section>
 

@@ -13,6 +13,7 @@
             margin-top: 100px;
         }
 
+        /* 内联 padding 不会影响布局 */
         .inline-padding {
             padding: 20px 0;
             margin-bottom: 50px;
@@ -25,6 +26,7 @@
         }
 
         /* 利用 padding 实现任意高度分割线 */
+        /* 分割线总高度 = padding top + padding bottom + 2*border */
         .inline-p-line .line::after {
             content: '';
             padding: 10px 0px 1px;
@@ -83,8 +85,8 @@
         <div class="percent-padding">
         </div>
         
-        <!--   利用 padding 分隔 content 和 border 回执图形 -->
-        <i class="icon-menu"></i>
+        <!--   利用 padding 分隔 content 和 border 绘制图形 -->
+        <i class="icon-menu"></i> <span> &nbsp;&nbsp;&nbsp;&nbsp; </span>
         <i class="icon-dot"></i>
 
 

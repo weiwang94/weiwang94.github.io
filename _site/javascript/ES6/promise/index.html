@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=acc7d8decbcf7c2ae0f83df8567f135bd03bd377" media="screen">
+    <link rel="stylesheet" href="/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/headsmart.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Promise | 撒哈拉</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Promise" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="云想衣裳，花想容" />
+<meta property="og:description" content="云想衣裳，花想容" />
+<link rel="canonical" href="http://localhost:4000/javascript/ES6/promise/" />
+<meta property="og:url" content="http://localhost:4000/javascript/ES6/promise/" />
+<meta property="og:site_name" content="撒哈拉" />
+<script type="application/ld+json">
+{"description":"云想衣裳，花想容","@type":"WebPage","url":"http://localhost:4000/javascript/ES6/promise/","headline":"Promise","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <div class="shell">
+
+      <!-- <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>撒哈拉</h1>
+            <h2>云想衣裳，花想容</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header> -->
+
+      
+        <!-- <div id="no-downloads">
+          <span class="inner">
+          </span>
+        </div> -->
+
+
+      <!-- <span class="banner-fix"></span> -->
+
+
+      <section id="main_content">
+        <h1 id="promise">Promise</h1>
+
+<p>promise 是为了解决异步回调过多导致的代码难以维护的问题而出现的。promise 内部存在三种状态，<strong>pending</strong>、<strong>fulfilled</strong>和<strong>*rejected</strong>。
+这三种状态只能通过 promise 内部改变，且改变了之后就不能更改了，称之为 <strong>resolved</strong>。能唯一让 promise 变为 fulfilled 即成功状态的回调函数是 Promise 的构造函数第一个参数，一般命名为 resolve。能让 promise 变为 rejected 失败状态的回调函数就是 第二个参数，一般命名为 reject。</p>
+
+<p>基于这样的特点 promise 自然就有异步控制流程的能力了。不明白的，不妨设想一下，简单的异步操作无非就是进行中，成功，失败三种状态，只要在异步完成后调用成功回调把状态置为成功，调用失败同理</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new Promise((resolve, reject) =&gt; {})
+</code></pre></div></div>
+
+<h2 id="promise-用法">promise 用法</h2>
+
+<p>先写一个函数，返回 Promise 实例。然后调用这个函数的 then 方法得到异步响应，catch 方法，捕获异常</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 生成实例
+const p = ( ) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+       setTimeout(() =&gt; {
+           resolve(12)
+           
+       })
+    }) 
+}
+
+// 调用实例的 then 和 catch
+p().then(data=&gt; {
+    console.log('success', data)
+}).catch((err) =&gt; {
+    console.log('fail', err)
+})
+</code></pre></div></div>
+
+<p>then 和 catch 方法返回的还是 promise 实例，因此可以链式调用。</p>
+
+<p>finally 在状态改变时触发，但不知道是何种状态，应该写与状态无关的代码</p>
+
+<p>all 将多个 promise 实例状态包装为一个 promise 实例，所有实例都 resolve 调用 then，只要有一个实例 reject 调用 catch</p>
+
+<p>race  将多个 promise 实例状态包装为一个 promise 实例，那个实例的状态先改变就会改变最终的 promise 实例状态</p>
+
+<p>Promise.resolve() 和 Promise.reject() 返回状态改变后的 promise 实例</p>
+
+<p><a href="/javascript/ES6/promise/js/base.js">代码</a></p>
+
+<p><a href="/javascript/ES6/promise/js/question.js">自测问题</a></p>
+
+<h2 id="promise-源码">promise 源码</h2>
+
+<p>源码来自 <a href="https://segmentfault.com/a/1190000018209663">segmentfault</a> <a href="https://github.com/funky-tiger/create-promise-by-yourself">github</a></p>
+
+<p>我编写了简单的测试代码</p>
+
+<p>用类写的简单 <a href="/javascript/ES6/promise/js/simple-promise.js">promise</a></p>
+
+      </section>
+
+      <!-- <footer> 
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            
+              <p>this project by <a href="https://github.com/weiwang94">weiwang94</a> can be found on <a href="https://github.com/weiwang94/weiwang94.github.io">GitHub</a></p>
+            
+            
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </footer> -->
+
+    </div>
+
+    
+  </body>
+</html>
